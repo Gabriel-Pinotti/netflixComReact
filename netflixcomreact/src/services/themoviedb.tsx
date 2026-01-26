@@ -8,54 +8,77 @@ const fetchOptions = {
   },
 };
 
-const basicFetch = async (endpoint: string) => {
-  const requisition = await fetch(`${API_BASE}${endpoint}`, fetchOptions);
+const basicFetch = async (endpoint: string, language: string) => {
+  const requisition = await fetch(
+    `${API_BASE}${endpoint}${language}`,
+    fetchOptions,
+  );
   const json = await requisition.json();
-  console.log(json); // TODO remove console.log, added for testing
+  console.log(endpoint); // TODO remove console.log, added for testing
+  console.log(json);
   return json;
 };
 
 const getHomeList = async () => {
+  // if needed, receive the language parameter as a string to use in basicFetch()
   return [
     {
       slug: "Originals",
       title: "Originais do Netflix",
-      items: await basicFetch(`/discover/tv?with_network=213&language=pt-BR`), // network=213 is the Netflix originals code
+      items: await basicFetch(
+        "/discover/tv?with_networks=213",
+        "&language=pt-BR",
+      ), // network=213 is the Netflix originals code
     },
     {
       slug: "trending",
       title: "Recomendados para Você",
-      items: [], // TODO apply "originals" endpoint to the remaining slugs
+      items: await basicFetch("/trending/all/week", "?language=pt-BR"),
     },
     {
       slug: "toprated",
       title: "Em Alta",
-      items: [],
+      items: await basicFetch("/movie/top_rated", "?language=pt-BR"),
     },
     {
       slug: "action",
       title: "Ação",
-      items: [],
+      items: await basicFetch(
+        "/discover/movie?with_genres=28",
+        "&language=pt-BR",
+      ),
     },
     {
       slug: "comedy",
       title: "Comédia",
-      items: [],
+      items: await basicFetch(
+        "/discover/movie?with_genres=35",
+        "&language=pt-BR",
+      ),
     },
     {
       slug: "horror",
       title: "Terror",
-      items: [],
+      items: await basicFetch(
+        "/discover/movie?with_genres=27",
+        "&language=pt-BR",
+      ),
     },
     {
       slug: "romance",
       title: "Romance",
-      items: [],
+      items: await basicFetch(
+        "/discover/movie?with_genres=10749",
+        "&language=pt-BR",
+      ),
     },
     {
       slug: "documentary",
       title: "Documentários",
-      items: [],
+      items: await basicFetch(
+        "/discover/movie?with_genres=99",
+        "&language=pt-BR",
+      ),
     },
   ];
 };
