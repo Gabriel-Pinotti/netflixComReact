@@ -1,11 +1,16 @@
 import "./homepage.css";
 import { useEffect } from "react";
-import getHomeList from "../services/themoviedb.tsx";
+import TMDb from "../services/themoviedb.tsx";
 
 const HomePage = () => {
   useEffect(() => {
-    getHomeList.getHomeList();
-  });
+    const loadAll = async () => {
+      const homePageList = await TMDb.getHomeList();
+      console.log(homePageList);
+    };
+
+    loadAll();
+  }, []);
   return <></>;
 };
 

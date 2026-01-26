@@ -14,8 +14,6 @@ const basicFetch = async (endpoint: string, language: string) => {
     fetchOptions,
   );
   const json = await requisition.json();
-  console.log(endpoint); // TODO remove console.log, added for testing
-  console.log(json);
   return json;
 };
 
@@ -23,7 +21,7 @@ const getHomeList = async () => {
   // if needed, receive the language parameter as a string to use in basicFetch()
   return [
     {
-      slug: "Originals",
+      slug: "originals",
       title: "Originais do Netflix",
       items: await basicFetch(
         "/discover/tv?with_networks=213",
