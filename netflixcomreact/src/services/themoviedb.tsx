@@ -1,9 +1,17 @@
-const API_KEY = "952d508427e63fe7686b2482b4df5f68";
 const API_BASE = "https://api.themoviedb.org/3";
+const fetchOptions = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NTJkNTA4NDI3ZTYzZmU3Njg2YjI0ODJiNGRmNWY2OCIsIm5iZiI6MTc2OTM3OTAxMy42NzgwMDAyLCJzdWIiOiI2OTc2OTRjNTJhYjlmNWFhNWNhZTM2MGIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.OYut0O7plrphmoh3rAcEA0z_I10eQAzWhFN1Jdz42qU",
+  },
+};
 
 const basicFetch = async (endpoint: string) => {
-  const requisition = await fetch(`${API_BASE}${endpoint}`);
+  const requisition = await fetch(`${API_BASE}${endpoint}`, fetchOptions);
   const json = await requisition.json();
+  console.log(json); // TODO remove console.log, added for testing
   return json;
 };
 
@@ -12,12 +20,12 @@ const getHomeList = async () => {
     {
       slug: "Originals",
       title: "Originais do Netflix",
-      items: await basicFetch(), // adicionar fetch específico da API
+      items: await basicFetch(`/discover/tv?with_network=213&language=pt-BR`), // network=213 is the Netflix originals code
     },
     {
       slug: "trending",
       title: "Recomendados para Você",
-      items: [],
+      items: [], // TODO apply "originals" endpoint to the remaining slugs
     },
     {
       slug: "toprated",
