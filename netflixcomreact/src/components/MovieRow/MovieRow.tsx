@@ -25,7 +25,7 @@ const MovieRow = ({ movieRowList }: MovieRowProps) => {
                           <div key={key} className="movieRow--item">
                             <img
                               src={API_IMAGE_BASE + currentMovie.poster_path}
-                              alt={currentMovie.name + currentMovie.title}
+                              alt={currentMovie.name || currentMovie.title}
                             />
                           </div>
                         );

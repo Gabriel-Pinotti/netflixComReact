@@ -25,8 +25,8 @@ export interface MovieCategory {
     total_pages: number;
     total_results: number;
     results: {
-      name: string;
-      title: string;
+      name?: string;
+      title?: string;
       backdrop_path: string;
       poster_path: string;
       adult: boolean;
