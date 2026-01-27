@@ -21,14 +21,17 @@ const MovieRow = ({ movieRowList }: MovieRowProps) => {
                     {currentMovieRow.items.results &&
                       currentMovieRow.items.results.map((currentMovie, key) => {
                         // iterate in each movie
-                        return (
-                          <div key={key} className="movieRow--item">
-                            <img
-                              src={API_IMAGE_BASE + currentMovie.poster_path}
-                              alt={currentMovie.name || currentMovie.title}
-                            />
-                          </div>
-                        );
+                        if (currentMovie.poster_path != null) {
+                          // added to remove empty banners and empty requests to TMDb API
+                          return (
+                            <div key={key} className="movieRow--item">
+                              <img
+                                src={API_IMAGE_BASE + currentMovie.poster_path}
+                                alt={currentMovie.name || currentMovie.title}
+                              />
+                            </div>
+                          );
+                        }
                       })}
                   </div>
                 </div>

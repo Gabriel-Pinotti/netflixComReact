@@ -41,6 +41,21 @@ export interface MovieCategory {
   };
 }
 
+export interface MovieData {
+  name?: string;
+  title?: string;
+  backdrop_path: string;
+  poster_path: string;
+  adult: boolean;
+  first_air_date: string;
+  genre_ids: number[];
+  id: number;
+  overview: string;
+  popularity: number;
+  vote_average: number;
+  vote_count: number;
+}
+
 const getHomeList = async () => {
   // if needed, receive the language parameter as a string to use in basicFetch()
   return [
