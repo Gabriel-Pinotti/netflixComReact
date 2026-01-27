@@ -1,9 +1,10 @@
 import "./homepage.css";
 import { useEffect, useState } from "react";
-import getHomeList, { type MovieCategory } from "../services/themoviedb.tsx";
+import getHomeList, { type MovieCategory } from "../services/themoviedb.ts";
+import MovieRow from "../components/MovieRow/MovieRow.tsx";
 
 const HomePage = () => {
-  const [movieList, setMovieList] = useState<MovieCategory[]>();
+  const [movieList, setMovieList] = useState<MovieCategory[]>([]);
 
   useEffect(() => {
     const loadAll = async () => {
@@ -18,10 +19,7 @@ const HomePage = () => {
   return (
     <div className="page">
       <section className="lists">
-        {movieList &&
-          movieList.map((category, index) => {
-            return <div key={index}>{category.title}</div>;
-          })}
+        <MovieRow movieRowList={movieList} />
       </section>
     </div>
   );

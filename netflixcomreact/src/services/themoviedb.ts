@@ -20,7 +20,24 @@ const basicFetch = async (endpoint: string, language: string) => {
 export interface MovieCategory {
   slug: string;
   title: string;
-  items: object;
+  items: {
+    page: number;
+    total_pages: number;
+    total_results: number;
+    results: {
+      name: string;
+      backdrop_path: string;
+      poster_path: string;
+      adult: boolean;
+      first_air_date: string;
+      genre_ids: number[];
+      id: number;
+      overview: string;
+      popularity: number;
+      vote_average: number;
+      vote_count: number;
+    }[];
+  };
 }
 
 const getHomeList = async () => {
