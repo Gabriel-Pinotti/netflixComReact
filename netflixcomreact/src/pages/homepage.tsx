@@ -1,17 +1,30 @@
 import "./homepage.css";
-import { useEffect } from "react";
-import TMDb from "../services/themoviedb.tsx";
+import { useEffect, useState } from "react";
+import getHomeList, { type MovieCategory } from "../services/themoviedb.tsx";
 
 const HomePage = () => {
+  const [movieList, setMovieList] = useState<MovieCategory[]>();
+
   useEffect(() => {
     const loadAll = async () => {
-      const homePageList = await TMDb.getHomeList();
-      console.log(homePageList);
+      const homePageList = await getHomeList();
+      setMovieList(homePageList);
+      console.log(homePageList); // TODO remove console.log
     };
 
     loadAll();
   }, []);
-  return <></>;
+
+  return (
+    <div className="page">
+      <section className="lists">
+        {movieList &&
+          movieList.map((category, index) => {
+            return <div key={index}>{category.title}</div>;
+          })}
+      </section>
+    </div>
+  );
 };
 
 export default HomePage;

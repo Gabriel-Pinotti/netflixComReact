@@ -17,6 +17,12 @@ const basicFetch = async (endpoint: string, language: string) => {
   return json;
 };
 
+export interface MovieCategory {
+  slug: string;
+  title: string;
+  items: object;
+}
+
 const getHomeList = async () => {
   // if needed, receive the language parameter as a string to use in basicFetch()
   return [
@@ -81,6 +87,4 @@ const getHomeList = async () => {
   ];
 };
 
-export default {
-  getHomeList: getHomeList,
-};
+export default getHomeList;
