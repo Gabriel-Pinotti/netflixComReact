@@ -26,6 +26,7 @@ export interface MovieCategory {
     total_results: number;
     results: {
       name: string;
+      title: string;
       backdrop_path: string;
       poster_path: string;
       adult: boolean;

@@ -10,7 +10,23 @@ const MovieRow = ({ movieRowList }: MovieRowProps) => {
     <section>
       {movieRowList &&
         movieRowList.map((currentMovieRow, key) => {
-          return <section key={key}>{currentMovieRow.title}</section>;
+          return (
+            <section key={key}>
+              <h3 className="categoryTitle">{currentMovieRow.title}</h3>
+              {currentMovieRow.items.results &&
+                currentMovieRow.items.results.map((currentMovie, key) => {
+                  return (
+                    <div key={key}>
+                      <a className="movieTitle">
+                        {currentMovie.name}
+                        {currentMovie.title}
+                      </a>
+                      <br />
+                    </div>
+                  );
+                })}
+            </section>
+          );
         })}
     </section>
   );
