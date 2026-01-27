@@ -1,5 +1,6 @@
 import "./FeaturedMovie.css";
 import { type MovieData } from "../../services/themoviedb.ts";
+
 interface Props {
   featured: MovieData;
 }

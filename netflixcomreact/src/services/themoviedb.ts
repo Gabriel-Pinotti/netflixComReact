@@ -56,6 +56,25 @@ export interface MovieData {
   vote_count: number;
 }
 
+const getMovieInfo = async (movieId: number, type: string) => {
+  let info = {};
+
+  if (movieId) {
+    switch (type) {
+      case "movie":
+        info = await basicFetch(`/movie/${movieId}`, "?language=pt-BR");
+
+        break;
+      case "tv":
+        info = await basicFetch(`/tv/${movieId}`, "?language=pt-BR");
+
+        break;
+    }
+
+    console.log(info);
+  }
+};
+
 const getHomeList = async () => {
   // if needed, receive the language parameter as a string to use in basicFetch()
   return [
@@ -120,4 +139,7 @@ const getHomeList = async () => {
   ];
 };
 
-export default getHomeList;
+export default {
+  getHomeList: getHomeList,
+  getMovieInfo: getMovieInfo,
+};
