@@ -1,5 +1,30 @@
-.header {
-  height: 70px;
-  width: 100vw;
-  background-color: #111;
+header {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 7vh;
+  padding: 40px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  background: transparent;
+}
+header.black {
+  background-color: #141414;
+}
+.header--logo {
+  height: 3vh;
+}
+.header--logo img {
+  height: 100%;
+}
+.header--user {
+  height: 5vh;
+}
+.header--user img {
+  height: 100%;
+  border-radius: 3px;
 }

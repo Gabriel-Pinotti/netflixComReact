@@ -31,9 +31,7 @@ const HomePage = () => {
 
   return (
     <div className="page">
-      <section className="header">
-        <Header />
-      </section>
+      <Header />
       <section className="featured">
         {featuredMovieData && <FeaturedMovie featured={featuredMovieData} />}
       </section>

@@ -14,8 +14,8 @@
   flex-direction: column;
   justify-content: center;
   padding-left: 30px;
-  padding-bottom: 150px;
-  padding-top: 70px;
+  padding-bottom: 15vh;
+  padding-top: 7vh;
 }
 .featured--name {
   font-size: 60px;
