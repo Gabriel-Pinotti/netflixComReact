@@ -4,6 +4,7 @@ import TMDb from "../services/themoviedb.ts";
 import { type MovieCategory, type MovieData } from "../services/themoviedb.ts";
 import MovieRow from "../components/MovieRow/MovieRow.tsx";
 import FeaturedMovie from "../components/FeaturedMovie/FeaturedMovie.tsx";
+import Header from "../components/Header/Header.tsx";
 
 const HomePage = () => {
   const [movieList, setMovieList] = useState<MovieCategory[]>([]);
@@ -30,6 +31,9 @@ const HomePage = () => {
 
   return (
     <div className="page">
+      <section className="header">
+        <Header />
+      </section>
       <section className="featured">
         {featuredMovieData && <FeaturedMovie featured={featuredMovieData} />}
       </section>

@@ -25,7 +25,7 @@ const FeaturedMovie = ({ featured }: Props) => {
           </div>
           <div className="featured--info">
             <div className="featured--rating">
-              {featured.vote_average} pontos
+              {featured.vote_average.toFixed(2)} pontos
             </div>
             <div className="featured--spacer">•</div>
             <div className="featured--year">{firstDate.getFullYear()}</div>
