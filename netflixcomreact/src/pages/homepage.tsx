@@ -9,6 +9,7 @@ import Header from "../components/Header/Header.tsx";
 const HomePage = () => {
   const [movieList, setMovieList] = useState<MovieCategory[]>([]);
   const [featuredMovieData, setFeaturedMovieData] = useState<MovieData>();
+  const [blackHeader, setBlackHeader] = useState<boolean>(false);
 
   useEffect(() => {
     // on page load
@@ -29,9 +30,24 @@ const HomePage = () => {
     loadAll();
   }, []);
 
+  useEffect(() => {
+    const scrollListener = () => {
+      if (window.scrollY > 20) {
+        setBlackHeader(true);
+      } else {
+        setBlackHeader(false);
+      }
+    };
+    window.addEventListener("scroll", scrollListener);
+
+    return () => {
+      window.removeEventListener("scroll", scrollListener);
+    };
+  }, []);
+
   return (
     <div className="page">
-      <Header />
+      <Header blackHeader={blackHeader} />
       <section className="featured">
         {featuredMovieData && <FeaturedMovie featured={featuredMovieData} />}
       </section>

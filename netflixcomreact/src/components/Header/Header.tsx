@@ -1,8 +1,11 @@
 import "./Header.css";
+interface Props {
+  blackHeader: boolean;
+}
 
-const Header = () => {
+const Header = ({ blackHeader }: Props) => {
   return (
-    <header className="black">
+    <header className={blackHeader ? "black" : ""}>
       <div className="header--logo">
         <a href="/">
           <img
