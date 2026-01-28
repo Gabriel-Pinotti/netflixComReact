@@ -54,6 +54,13 @@ const HomePage = () => {
       <section className="lists">
         <MovieRow movieRowList={movieList} />
       </section>
+
+      <footer>
+        Projeto para portfólio pessoal <br />
+        Direitos de imagem para Netflix <br />
+        Dados adquiridos do site{" "}
+        <a href="https://themoviedb.org">themoviedb.org</a>
+      </footer>
     </div>
   );
 };
