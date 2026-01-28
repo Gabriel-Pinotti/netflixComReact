@@ -27,15 +27,27 @@ const FeaturedMovie = ({ featured }: Props) => {
             <div className="featured--rating">
               {featured.vote_average} pontos
             </div>
+            <div className="featured--spacer">•</div>
             <div className="featured--year">{firstDate.getFullYear()}</div>
+            <div className="featured--spacer">•</div>
             <div className="featured--seasons">
               {featured.number_of_seasons} temporada
               {featured.number_of_seasons != 1 ? "s" : ""}
             </div>
-            <div className="featured--description">{featured.overview}</div>
+            <div className="featured--overview">{featured.overview}</div>
             <div className="featured--buttons-area">
-              <a href="">▶ Assistir</a> <br />
-              <a href="">+ Minha lista</a>
+              <a
+                className="featured--buttons-watch"
+                href={`/watch/${featured.id}`}
+              >
+                ▶ Assistir
+              </a>
+              <a
+                className="featured--buttons-addToList"
+                href={`/list/add/${featured.id}`}
+              >
+                + Minha lista
+              </a>
             </div>
             <div className="featured--genres">
               <strong>Gêneros: </strong>
