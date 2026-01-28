@@ -54,25 +54,23 @@ export interface MovieData {
   popularity: number;
   vote_average: number;
   vote_count: number;
+  number_of_seasons: number;
 }
 
 const getMovieInfo = async (movieId: number, type: string) => {
-  let info = {};
+  let info;
 
-  if (movieId) {
-    switch (type) {
-      case "movie":
-        info = await basicFetch(`/movie/${movieId}`, "?language=pt-BR");
+  switch (type) {
+    case "movie":
+      info = await basicFetch(`/movie/${movieId}`, "?language=pt-BR");
 
-        break;
-      case "tv":
-        info = await basicFetch(`/tv/${movieId}`, "?language=pt-BR");
+      break;
+    case "tv":
+      info = await basicFetch(`/tv/${movieId}`, "?language=pt-BR");
 
-        break;
-    }
-
-    console.log(info);
+      break;
   }
+  return info;
 };
 
 const getHomeList = async () => {

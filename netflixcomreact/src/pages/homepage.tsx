@@ -10,17 +10,19 @@ const HomePage = () => {
   const [featuredMovieData, setFeaturedMovieData] = useState<MovieData>();
 
   useEffect(() => {
+    // on page load
     const loadAll = async () => {
-      const homePageList = await TMDb.getHomeList();
-      setMovieList(homePageList);
+      const homePageList = await TMDb.getHomeList(); // get all home page items
+      setMovieList(homePageList); // assign to list
       console.log(homePageList); // TODO remove console.log
 
-      const originals = homePageList.filter((i) => i.slug === "originals");
+      const originals = homePageList.filter((i) => i.slug === "originals"); // filter Netflix originals
       const randomNum = Math.floor(
         Math.random() * (originals[0].items.results.length - 1),
       );
-      const randomMovie = originals[0].items.results[randomNum];
-      setFeaturedMovieData(randomMovie);
+      const randomMovie = originals[0].items.results[randomNum]; // get random movie (from originals)
+      const randomMovieInfo = await TMDb.getMovieInfo(randomMovie.id, "tv"); // fetch info about random movie
+      setFeaturedMovieData(randomMovieInfo); // use random movie data as featured
     };
 
     loadAll();
