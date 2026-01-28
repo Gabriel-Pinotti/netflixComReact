@@ -7,6 +7,8 @@ interface Props {
 }
 
 const FeaturedMovie = ({ featured }: Props) => {
+  const firstDate = new Date(featured.first_air_date);
+
   return (
     <section
       className="featured"
@@ -25,9 +27,27 @@ const FeaturedMovie = ({ featured }: Props) => {
             <div className="featured--rating">
               {featured.vote_average} pontos
             </div>
-            <div className="featured--year">2099</div>
+            <div className="featured--year">{firstDate.getFullYear()}</div>
             <div className="featured--seasons">
-              {featured.number_of_seasons}
+              {featured.number_of_seasons} temporada
+              {featured.number_of_seasons != 1 ? "s" : ""}
+            </div>
+            <div className="featured--description">{featured.overview}</div>
+            <div className="featured--buttons-area">
+              <a href="">▶ Assistir</a> <br />
+              <a href="">+ Minha lista</a>
+            </div>
+            <div className="featured--genres">
+              <strong>Gêneros: </strong>
+              {featured.genres &&
+                featured.genres.map((currentGender, key) => {
+                  return (
+                    <a key={key}>
+                      {currentGender.name}
+                      {key == featured.genres.length - 1 ? "" : ", "}
+                    </a>
+                  );
+                })}
             </div>
           </div>
         </div>

@@ -48,7 +48,10 @@ export interface MovieData {
   poster_path: string;
   adult: boolean;
   first_air_date: string;
-  genre_ids: number[];
+  genres: {
+    id: number;
+    name: string;
+  }[];
   id: number;
   overview: string;
   popularity: number;
