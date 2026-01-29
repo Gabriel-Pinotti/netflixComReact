@@ -48,11 +48,16 @@ const HomePage = () => {
   return (
     <div className="page">
       <Header blackHeader={blackHeader} />
+
       <section className="featured">
         {featuredMovieData && <FeaturedMovie featured={featuredMovieData} />}
       </section>
+
       <section className="lists">
-        <MovieRow movieRowList={movieList} />
+        {movieList &&
+          movieList.map((currentMovieRow, key) => {
+            return <MovieRow key={key} movieRow={currentMovieRow} />;
+          })}
       </section>
 
       <footer>

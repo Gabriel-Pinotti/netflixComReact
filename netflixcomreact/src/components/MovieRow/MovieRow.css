@@ -7,9 +7,10 @@
 .movieRow--listarea {
   overflow-x: hidden;
   padding-left: 30px;
+  height: 400px;
 }
 .movieRow--list {
-  width: 99999px;
+  transition: all ease 0.25s;
 }
 .movieRow--item {
   display: inline-block;
@@ -23,4 +24,31 @@
 .movieRow--item img:hover {
   transform: scale(1);
   cursor: pointer;
+}
+.movieRow--arrowRight,
+.movieRow--arrowLeft {
+  position: absolute;
+  width: 40px;
+  height: 400px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 0;
+  transition: all ease 0.2s;
+}
+.movieRow--arrowLeft {
+  left: 0;
+  z-index: 99;
+}
+.movieRow--arrowRight {
+  right: 0;
+  z-index: 99;
+}
+.movieRow:hover .movieRow--arrowLeft,
+.movieRow:hover .movieRow--arrowRight {
+  opacity: 1;
 }
