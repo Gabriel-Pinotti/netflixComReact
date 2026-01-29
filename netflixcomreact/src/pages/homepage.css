@@ -16,3 +16,13 @@ footer {
 .lists {
   margin-top: -15vh;
 }
+.loading {
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.loading img {
+  width: 5%;
+}

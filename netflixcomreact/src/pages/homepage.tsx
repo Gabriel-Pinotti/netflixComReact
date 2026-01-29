@@ -16,7 +16,6 @@ const HomePage = () => {
     const loadAll = async () => {
       const homePageList = await TMDb.getHomeList(); // get all home page items
       setMovieList(homePageList); // assign to list
-      console.log(homePageList); // TODO remove console.log
 
       const originals = homePageList.filter((i) => i.slug === "originals"); // filter Netflix originals
       const randomNum = Math.floor(
@@ -47,6 +46,15 @@ const HomePage = () => {
 
   return (
     <div className="page">
+      {movieList.length <= 0 && (
+        <div className="loading">
+          <img
+            src="https://i.giphy.com/FgH5xSNjGHZsiYPWAX.webp"
+            alt="Carregando"
+          />
+        </div>
+      )}
+
       <Header blackHeader={blackHeader} />
 
       <section className="featured">
