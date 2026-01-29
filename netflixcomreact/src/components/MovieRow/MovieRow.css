@@ -52,3 +52,19 @@
 .movieRow:hover .movieRow--arrowRight {
   opacity: 1;
 }
+
+@media (max-width: 760px) {
+  .movieRow--arrowLeft,
+  .movieRow--arrowRight {
+    height: 220px;
+    opacity: 1;
+  }
+  .movieRow--item {
+    width: 150px;
+  }
+  .movieRow--listarea {
+    height: 220px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+}

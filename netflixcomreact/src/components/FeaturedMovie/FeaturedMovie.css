@@ -80,3 +80,39 @@
   font-size: 18px;
   color: #999;
 }
+
+@media (max-width: 760px) {
+  .featured {
+    height: 90vh;
+  }
+  .featured--name {
+    padding-right: 200px;
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  .featured--info {
+    font-size: 16px;
+  }
+  .featured--overview {
+    font-size: 14px;
+    max-width: 100%;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+  .featured--buttons-watch,
+  .featured--buttons-addToList {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+  }
+  .featured--genres {
+    font-size: 14px;
+  }
+  .featured--spacer {
+    display: none;
+  }
+  .featured--horizontal-fade {
+    background: linear-gradient(to right, #111 5%, transparent 100%);
+  }
+}
