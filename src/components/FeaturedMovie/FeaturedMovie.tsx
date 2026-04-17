@@ -1,4 +1,5 @@
 import "./FeaturedMovie.css";
+import { Link } from "react-router-dom";
 import { type MovieData } from "../../services/themoviedb.ts";
 const API_IMAGE_BASE = "https://image.tmdb.org/t/p/original/";
 
@@ -36,18 +37,18 @@ const FeaturedMovie = ({ featured }: Props) => {
             </div>
             <div className="featured--overview">{featured.overview}</div>
             <div className="featured--buttons-area">
-              <a
+              <Link
                 className="featured--buttons-watch"
-                href={`/watch/${featured.id}`}
+                to={`/watch/${featured.id}`}
               >
                 ▶ Assistir
-              </a>
-              <a
+              </Link>
+              <Link
                 className="featured--buttons-addToList"
-                href={`/list/add/${featured.id}`}
+                to={`/list/add/${featured.id}`}
               >
                 + Minha lista
-              </a>
+              </Link>
             </div>
             <div className="featured--genres">
               <strong>Gêneros: </strong>

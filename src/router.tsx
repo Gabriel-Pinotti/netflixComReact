@@ -3,7 +3,7 @@ import HomePage from "./pages/homepage";
 
 const Router = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/netflixComReact/">
       <Routes>
         <Route path="/" element={<HomePage />} />
       </Routes>
